@@ -10,7 +10,6 @@ import {
 import Appbar from "@/components/Appbar";
 import Card from "@/components/Card";
 import "@solana/wallet-adapter-react-ui/styles.css";
-import GlassCard from "@/components/Glass";
 
 export default function Home() {
   return (
