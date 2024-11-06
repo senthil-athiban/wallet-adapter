@@ -80,7 +80,7 @@ const AirDrop = () => {
           type="number"
           value={amount || ""}
           onChange={(e) => setAmount(parseInt(e.target.value) || 0)}
-          className="w-full bg-white bg-opacity-20 rounded-md text-black text-center"
+          className="w-full bg-white bg-opacity-20 rounded-md text-white text-center"
         />
         <button
           onClick={handleAirDrop}

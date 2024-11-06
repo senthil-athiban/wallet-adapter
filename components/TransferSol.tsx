@@ -51,13 +51,13 @@ const TransferSol = () => {
           type="text"
           placeholder="Receiver public key"
           onChange={(e) => setReceiverAddress(e.target.value)}
-          className="bg-white bg-opacity-20 rounded-lg text-black p-2 placeholder-gray-100 text-sm"
+          className="bg-white bg-opacity-20 rounded-lg text-white p-2 placeholder-gray-100 text-sm"
         />
         <input
           type="number"
           name="amount"
           placeholder="amount"
-          className="bg-white bg-opacity-20 rounded-lg text-black p-2 placeholder-gray-100 text-sm"
+          className="bg-white bg-opacity-20 rounded-lg text-white p-2 placeholder-gray-100 text-sm"
           onChange={(e) => setAmount(parseInt(e.target.value))}
         />
         <button
