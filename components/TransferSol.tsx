@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import {
   LAMPORTS_PER_SOL,
@@ -5,46 +6,64 @@ import {
   SystemProgram,
   Transaction,
 } from "@solana/web3.js";
-import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const TransferSol = () => {
   const [receiverAddress, setReceiverAddress] = useState("");
   const [amount, setAmount] = useState(0);
 
-  const {connection} = useConnection();
+  const { connection } = useConnection();
   const wallet = useWallet();
 
   const handleTransfer = async () => {
-    if (!wallet.publicKey) throw new Error("Wallet not connected");
+    if (!wallet.publicKey) {
+      toast.error("Wallet not connected");
+      return;
+    }
+    try {
+      const transaction = new Transaction();
+      transaction.add(
+        SystemProgram.transfer({
+          fromPubkey: wallet.publicKey,
+          toPubkey: new PublicKey(receiverAddress),
+          lamports: amount * LAMPORTS_PER_SOL,
+        })
+      );
 
-    const transaction = new Transaction();
-    transaction.add(
-      SystemProgram.transfer({
-        fromPubkey: wallet.publicKey,
-        toPubkey: new PublicKey(receiverAddress),
-        lamports: amount * LAMPORTS_PER_SOL,
-      })
-    );
-
-    const res = await wallet.sendTransaction(transaction, connection);
-    alert(`Amount ${amount} SOL has been sent to ${receiverAddress}`)
+      await wallet.sendTransaction(transaction, connection);
+      toast.success(`Amount ${amount} SOL has been sent to ${receiverAddress}`);
+    } catch (error) {
+      console.error("Transaction failed", error);
+      toast.error("Transaction failed. Please try again.");
+    } finally {
+      setAmount(0);
+      setReceiverAddress("");
+    }
   };
   return (
-    <div>
+    <div className="flex flex-col gap-y-2 w-full">
+      <h2 className="text-xl font-extrabold bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent p-2">
+        TRANSFER SOLANA
+      </h2>
       <input
         type="text"
         placeholder="Receiver public key"
         onChange={(e) => setReceiverAddress(e.target.value)}
-        className="border-blue-50"
+        className="bg-white bg-opacity-20 rounded-lg text-black p-2 placeholder-gray-600"
       />
       <input
         type="number"
         name="amount"
         placeholder="amount"
-        className="border-blue-50"
+        className="bg-white bg-opacity-20 rounded-lg text-black p-2 placeholder-gray-600"
         onChange={(e) => setAmount(parseInt(e.target.value))}
       />
-      <button onClick={handleTransfer}>Send SOL</button>
+      <button
+        onClick={handleTransfer}
+        className="w-full p-2 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-sm text-white font-semibold shadow-lg hover:from-pink-400 hover:to-violet-400 transition duration-300"
+      >
+        Send SOL
+      </button>
     </div>
   );
 };

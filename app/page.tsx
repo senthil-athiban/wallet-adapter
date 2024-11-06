@@ -23,7 +23,7 @@ export default function Home() {
         <ConnectionProvider endpoint="https://api.devnet.solana.com">
           <WalletProvider wallets={[]} autoConnect>
             <WalletModalProvider>
-              <div className="flex flex-col justify-center items-center border p-2 rounded-lg shadow-md max-w-md gap-y-6 relative bg-white/10 backdrop-blur-md">
+              <div className="flex flex-col justify-center items-center border p-4 px-6 rounded-lg shadow-md max-w-md gap-y-6 relative bg-white/10 backdrop-blur-md">
                 <div className="flex gap-x-2">
                   <WalletMultiButton />
                   <WalletDisconnectButton />
