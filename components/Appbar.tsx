@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import solana from "@/public/sol.png";
 import Image from "next/image";
 import {
@@ -12,12 +12,18 @@ import { toast } from "react-toastify";
 
 const Appbar = () => {
   const { connected } = useWallet();
-
+  const initialMount = useRef(false);
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    if (connected) {
-      toast.success("Wallet has been connected", {autoClose: 1000});
+    setMounted(true);
+    if(initialMount.current) {
+      if (connected) {
+        toast.success("Wallet has been connected", {autoClose: 1000});
+      } else {
+        toast.error("Wallet has been disconnected", {autoClose: 1000});
+      }
     } else {
-      toast.error("Wallet has been disconnected", {autoClose: 1000});
+      initialMount.current = true
     }
   }, [connected]);
 
@@ -30,7 +36,7 @@ const Appbar = () => {
         </p>
       </div>
       <div className="flex gap-x-2">
-        {connected ? <WalletDisconnectButton /> : <WalletMultiButton />}
+        {mounted && (connected ? <WalletDisconnectButton /> : <WalletMultiButton />)}
       </div>
     </div>
   );
