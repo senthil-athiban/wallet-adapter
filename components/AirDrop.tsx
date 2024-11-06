@@ -86,7 +86,7 @@ const AirDrop = () => {
           onClick={handleAirDrop}
           className="p-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-sm text-white font-semibold shadow-lg hover:from-pink-400 hover:to-violet-400 transition duration-300"
         >
-          AIRDROP
+          Airdrop
         </button>
       </div>
     </div>
