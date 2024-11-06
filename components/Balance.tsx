@@ -16,13 +16,13 @@ const Balance = () => {
     setBalance(amount);
   };
   return (
-    <div className="flex flex-col items-center p-4 bg-white bg-opacity-20 rounded-lg shadow-md backdrop-filter backdrop-blur-xl">
-      <p className="text-lg font-semibold text-white mb-4">
+    <div className="flex items-center p-2 bg-white bg-opacity-20 rounded-lg shadow-md backdrop-filter backdrop-blur-xl w-full justify-between mt-2 border-l-4 border-pink-500">
+      <p className="text-lg font-semibold text-white">
         Balance: {balance / 1000000000} SOL
       </p>
       <button
         onClick={handleBalance}
-        className="px-4 py-2 bg-blue-500 text-white font-bold rounded-lg shadow hover:bg-blue-600 transition duration-300"
+        className="p-2 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-sm text-white font-semibold shadow-lg hover:from-pink-400 hover:to-violet-400 transition duration-300"
       >
         Check Balance
       </button>

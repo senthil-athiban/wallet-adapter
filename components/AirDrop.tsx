@@ -1,5 +1,5 @@
 "use client";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -47,12 +47,12 @@ const AirDrop = () => {
   };
 
   return (
-    <div className="w-full px-4">
+    <div className="w-full">
+      <h2 className="text-xl font-extrabold bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent p-2">
+        SOL AIRDROP
+      </h2>
       <div className="flex gap-x-3 items-center w-full">
-        <div className="w-1/4">
-          <h2 className="text-center">SOL AIRDROP</h2>
-        </div>
-        <div className="flex bg-white bg-opacity-20 backdrop-filter backdrop-blu-rlg w-3/4 p-2 justify-around rounded-lg items-center">
+        <div className="flex w-full bg-white bg-opacity-20 backdrop-filter backdrop-blu-rlg p-2 justify-around rounded-lg items-center">
           <p
             className={`cursor-pointer py-1 px-4 rounded-full transition duration-300 ${
               selectedConnection === "dev"

@@ -41,8 +41,8 @@ const TransferSol = () => {
     }
   };
   return (
-    <div className="flex flex-col gap-y-2 w-full">
-      <h2 className="text-xl font-extrabold bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent p-2">
+    <div className="flex flex-col gap-y-2 w-full mt-2">
+      <h2 className="text-xl font-extrabold bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent">
         TRANSFER SOLANA
       </h2>
       <input
