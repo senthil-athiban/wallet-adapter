@@ -31,8 +31,8 @@ const Appbar = () => {
   return (
     <div className="flex items-center justify-between w-full p-2 py-3 shadow-md relative bg-white/20 backdrop-blur-md">
       <div className="flex items-center">
-        <Image src={solana} alt="" width={40} height={40} className="mr-2" />
-        <p className="text-2xl font-bold bg-gradient-to-r from-pink-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
+        <Image src={solana} alt="" width={50} height={50} className="mr-2" />
+        <p className="text-2xl font-serif font-normal bg-gradient-to-r from-pink-600 via-blue-600 to-violet-600 bg-clip-text text-transparent">
           WALLET ADAPTER
         </p>
       </div>
