@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import solana from "@/public/sol.png";
@@ -9,6 +9,7 @@ import {
 } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { toast } from "react-toastify";
+import { Wallet } from "lucide-react";
 
 const Appbar = () => {
   const { connected } = useWallet();
@@ -16,18 +17,18 @@ const Appbar = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
-    if(initialMount.current) {
+    if (initialMount.current) {
       if (connected) {
-        toast.success("Wallet has been connected", {autoClose: 1000});
+        toast.success("Wallet has been connected", { autoClose: 1000 });
       } else {
-        toast.error("Wallet has been disconnected", {autoClose: 1000});
+        toast.error("Wallet has been disconnected", { autoClose: 1000 });
       }
     } else {
-      initialMount.current = true
+      initialMount.current = true;
     }
   }, [connected]);
 
-  return (  
+  return (
     <div className="flex items-center justify-between w-full p-2 py-3 shadow-md relative bg-white/20 backdrop-blur-md">
       <div className="flex items-center">
         <Image src={solana} alt="" width={40} height={40} className="mr-2" />
@@ -36,7 +37,15 @@ const Appbar = () => {
         </p>
       </div>
       <div className="flex gap-x-2">
-        {mounted && (connected ? <WalletDisconnectButton /> : <WalletMultiButton />)}
+        {mounted &&
+          (connected ? (
+            <WalletDisconnectButton />
+          ) : (
+            <WalletMultiButton>
+              <Wallet size={20} className="mr-2" />
+              Connect Wallet
+            </WalletMultiButton>
+          ))}
       </div>
     </div>
   );
