@@ -48,11 +48,11 @@ const AirDrop = () => {
 
   return (
     <div className="w-full">
-      <h2 className="text-xl font-extrabold bg-gradient-to-r from-purple-800 to-blue-800 bg-clip-text text-transparent p-2">
+      <h2 className="text-xl font-extrabold bg-gradient-to-r from-green-400 to-blue-600 bg-clip-text text-transparent p-2">
         SOL AIRDROP
       </h2>
-      <div className="flex gap-x-3 items-center w-full">
-        <div className="flex w-full bg-white bg-opacity-20 backdrop-filter backdrop-blu-rlg p-2 justify-around rounded-lg items-center">
+      <div className="flex flex-col items-center w-full bg-gradient-to-r from-purple-500 to-blue-500 p-2 rounded-lg">
+        <div className="flex w-full   justify-around  items-center">
           <p
             className={`cursor-pointer py-1 px-4 rounded-full transition duration-300 ${
               selectedConnection === "dev"
@@ -74,7 +74,7 @@ const AirDrop = () => {
             Test
           </p>
         </div>
-      </div>
+      
       <div className="flex gap-x-2 py-2 w-full">
         <input
           type="number"
@@ -84,10 +84,11 @@ const AirDrop = () => {
         />
         <button
           onClick={handleAirDrop}
-          className="p-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-sm text-white font-semibold shadow-lg hover:from-pink-400 hover:to-violet-400 transition duration-300"
+          className="p-3 bg-gradient-to-r from-pink-500 to-violet-500 rounded-lg text-xs text-white font-mono shadow-lg hover:from-pink-400 hover:to-violet-400 transition duration-300"
         >
           Airdrop
         </button>
+      </div>
       </div>
     </div>
   );
