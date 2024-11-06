@@ -1,37 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solana Wallet App
 
-## Getting Started
+A Solana-based wallet application that allows users to interact with the Solana blockchain, providing features like airdropping SOL, signing messages, and transferring SOL.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Airdrop SOL**: Easily airdrop SOL to your wallet for development and testing purposes.
+- **Sign Messages**: Sign messages with your Solana wallet.
+- **Transfer SOL**: Send SOL to other addresses on the Solana blockchain.
+- **Wallet Connection**: Connect and disconnect your Solana wallet securely.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Node.js**: Make sure you have Node.js installed on your machine. You can download it from [here](https://nodejs.org/).
 
-## Learn More
+### Steps to Run Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the Repository**  
+   Clone this repository to your local machine:
+   ```bash
+    git clone https://github.com/your-username/wallet-adapter.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install Dependencies**
+    Navigate to the project folder and install the required dependencies:
+    ```bash
+    cd wallet-adapter
+    yarn install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the Development Server**
+Run the development server:
+    ```bash
+    yarn dev
+    ```
 
-## Deploy on Vercel
+Open in Browser
+Open your browser and navigate to http://localhost:3000 to see the app running locally.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Configuration
+The app is configured to connect to the Solana Devnet by default via the endpoint https://api.devnet.solana.com. You can modify this URL if you need to connect to a different Solana network (e.g., Testnet or Mainnet)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# wallet-adapter
+## Usage
+Once the app is running locally:
+
+- **Connect your Wallet**: Use the wallet modal to connect your Solana wallet (e.g., Phantom, Sollet).
+- **Airdrop SOL**: Use the "Airdrop SOL" feature to receive SOL on your wallet.
+- **Sign Messages:** Use the wallet to sign any messages.
+- **Transfer SOL:** Send SOL to any other Solana address using the transfer feature.
+
+## Contributing
+If you want to contribute to this project, feel free to fork the repository and create a pull request. Please ensure that any changes you make are well-documented.
+
+## License
+This project is licensed under the MIT License.
